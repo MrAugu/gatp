@@ -12,13 +12,15 @@ Router.get("/", (req, res) => {
 });
 
 Router.post("/", async (req, res) => {
-  if (!isUrl(req.body.url)) renderTemplate(res, req, "report.ejs", { alertRed: "Invalid URL specified.", alertGreen: null });
-
+  if (!isUrl(req.body.url)) renderTemplate(res, req, "report.ejs", { alertRed: "Invalid link specified.", alertGreen: null });
   const count = await Websites.countDocuments();
+  if (!req.body.url.startsWith("http")) req.body.url = `http://${req.body.url}`;
+  const isReported = await Websites.findOne({ url: req.body.url });
+  if (isReported) renderTemplate(res, req, "report.ejs", { alertRed: "The link has been already repored by someone else. :]", alertGreen: null });
 
   await (new Websites({
     id: count + 1,
-    url: `${req.body.url.startsWith("http") || req.body.url.startsWith("www") ? "http://" : ""}${req.body.url}`,
+    url: `${req.body.url}`,
     host: req.body.host.length < 3 ? null : req.body.host,
     game: games[req.body.game],
     timestamp: Date.now()

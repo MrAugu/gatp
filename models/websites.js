@@ -5,7 +5,8 @@ const Schema = mongoose.Schema({
   url: { type: String },
   host: { type: String },
   game: { type: String },
-  timestamp: { type: Number }
+  timestamp: { type: Number },
+  status: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model("websites", Schema);

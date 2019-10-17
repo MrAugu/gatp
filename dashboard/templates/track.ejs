@@ -1,0 +1,30 @@
+<%- include("blocks/header.ejs", { bot: bot, title: "Track Reports" }) %>
+  <div class="header-extension">
+    <p class="header-extension-context">Track Report</p>
+  </div>
+
+  <form method="post">
+    <section class="settings-section">
+      <% if (alertRed) { %>
+        <div class="alert-red">
+          <%- alertRed %>
+        </div>
+        <br>
+      <% } %>
+
+      <% if (data) { %>
+        <div class="alert-green">
+          <%- data %>
+        </div>
+        <br>
+      <% } %>
+      <% if (input) { %>
+      <p class="settings-section-title">Report ID:</p>
+      <input type="number" name="id" class="basic-input">
+      <br><br>
+      <button type="submit" class="basic-btn">Lookup</button>
+      <br><br>
+      <% } %>
+    </section>
+  </form>
+<%- include("blocks/footer.ejs") %>

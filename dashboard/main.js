@@ -100,10 +100,12 @@ module.exports = class {
 
     const indexPage = require("./routers/index.js");
     const reportPage = require("./routers/report.js");
+    const trackPage = require("./routers/track.js");
 
     app.use("/", indexPage);
     app.use("/report", reportPage);
-    
+    app.use("/track", trackPage);
+
     this.client.dash = app.listen(this.client.config.dashboard.port, null, null, () => console.log("Dashboard fully loaded."));
   }
 };
