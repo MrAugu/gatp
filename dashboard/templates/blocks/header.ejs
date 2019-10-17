@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="http://192.168.43.125/assets/main.css">
+    <script src="https://kit.fontawesome.com/14057e9c06.js"></script>
+  </head>
+  <body>
+    <header class="header-container">
+      <p class="logo"><img src="<%= bot.user.displayAvatarURL() %>" alt="brand"> <strong>G. A. P. T.</strong> <span class="beta-badge">Beta</span></p>
+      <nav>
+        <a href="#" class="hide-desktop"><i class="fas fa-bars menus menu-btn" id="menu"></i></a>
+          <ul class="show-desktop hide-mobile" id="nav">
+            <li id="exit" class="exit-btn hide-desktop"><i class="fas fa-times exit-btn"></i></li>
+            <div class="header-bav-list-items">
+              <li><a href="/discord">Discord Server</a></li>
+              <li><a href="/discord">Report Website</a></li>
+            </div>
+          </ul>
+      </nav>
+    </header>

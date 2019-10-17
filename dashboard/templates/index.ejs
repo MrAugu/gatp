@@ -1,0 +1,10 @@
+<%- include("blocks/header.ejs", { bot: bot, title: "Home" }) %>
+
+<section class="text-center">
+  <img src="<%= bot.user.displayAvatarURL() %>" alt="bot-icon" class="bot-icon-on-section">
+  <h1 class="bot-name-on-section">Game Anti-Phising Team</h1>
+  <p class="bot-decription-on-section"><br>We defend the players.</p><br><br>
+  <a href="/report" class="bot-btn-on-section"><i class="far fa-window-maximize"></i> Report Phising Wesbite</a>
+</section>
+
+<%- include("blocks/footer.ejs") %>
