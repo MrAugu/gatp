@@ -99,8 +99,11 @@ module.exports = class {
     });
 
     const indexPage = require("./routers/index.js");
+    const reportPage = require("./routers/report.js");
 
     app.use("/", indexPage);
+    app.use("/report", reportPage);
+    
     this.client.dash = app.listen(this.client.config.dashboard.port, null, null, () => console.log("Dashboard fully loaded."));
   }
 };

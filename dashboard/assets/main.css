@@ -370,7 +370,7 @@ footer {
   font-weight: bold;
   font-size: 25px;
   position: relative;
-  top: -0.5em;
+  top: 0.5em;
 }
 
 .header-extension-icon {
@@ -389,6 +389,25 @@ footer {
   border-radius: 7px;
   position: relative;
   top: -0.7em;
+}
+
+
+.alert-red {
+  min-height: 40px;
+  padding: 10px;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.alert-green {
+  min-height: 40px;
+  padding: 10px;
+  color: #28a745;
+  border: 1px solid #28a745;
+  border-radius: 3px;
+  width: 100%;
 }
 
 .basic-input {
@@ -617,6 +636,16 @@ textarea option {
   width: 100%;
   height: auto;
   word-break: break-word;
+}
+
+.url {
+    color: #1C86EE;
+    text-decoration: none;
+}
+
+.url:hover {
+    color: #17599b;
+    text-decoration: none;
 }
 
 @media only screen and (min-width: 1024px) {
