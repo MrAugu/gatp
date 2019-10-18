@@ -1,2 +1,2 @@
-# gatp
+# gapt
 Gaming Anti-Phishing Team
