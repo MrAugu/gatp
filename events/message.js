@@ -24,7 +24,8 @@ module.exports = class {
     const command = args.shift().toLowerCase();
     if (message.guild && !message.member) await message.guild.fetchMember(message.author);
     const cmd = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command));
-
+    if (!cmd) return;
+    
     if (level < 9 && this.client.cmdMaintenance === true) return reply("A maintenance on the bot is currently undergoing. Please try again later.");
     if (cmd.conf.enabled === false) return;
 
