@@ -4,6 +4,7 @@ const client = require("../../index.js").Client;
 const path = require("path");
 
 Router.get("/", (req, res) => {
+  res.redirect("/report");
   renderTemplate(res, req, "index.ejs");
 });
 
