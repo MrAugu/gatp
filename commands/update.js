@@ -30,7 +30,6 @@ class Update extends Command {
 
     if (list === 2) {
       const embed = new Discord.MessageEmbed()
-        .setAuthor("GAPT", this.client.user.displayAvatarURL())
         .setTitle("Website Taken Down")
         .setDescription(`**Website:** ${dbReport.url}\n**Hosted On:** ${dbReport.host}\n**Game:** ${dbReport.game}\n**Case ID:** ${dbReport.id}`)
         .setColor("RED")
