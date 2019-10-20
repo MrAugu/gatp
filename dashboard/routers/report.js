@@ -30,10 +30,9 @@ Router.post("/", async (req, res) => {
   const embed = new Discord.MessageEmbed()
     .setAuthor("GAPT", client.user.displayAvatarURL())
     .setTitle("New Report")
-    .setDescription(`Website: ${req.body.url}\nHosted On: ${(req.body.host.length < 3 ? null : req.body.host) === null ? "Not Specified" : (req.body.host.length < 3 ? null : req.body.host)}\nGame: ${games[req.body.game]}`)
+    .setDescription(`Website: ${req.body.url}\nHosted On: ${(req.body.host.length < 3 ? null : req.body.host) === null ? "Not Specified" : (req.body.host.length < 3 ? null : req.body.host)}\nGame: ${games[req.body.game]}\nCase ID: ${count + 1}`)
     .setColor("RED")
-    .setTimestamp()
-    .setFooter(`ID - ${count + 1}`);
+    .setTimestamp();
   client.channels.get("536531331903913985").send(embed);
 
   renderTemplate(res, req, "report.ejs", { alertRed: null, alertGreen: "Reported!<br>Report ID: <strong>" + (count + 1) + "</strong> (You can use it to track your report.)" });
