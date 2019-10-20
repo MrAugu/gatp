@@ -16,7 +16,7 @@ const config = {
       "callbackURL": "http://localhost/callback",
       "sessionSecret": "EFRF@F@EE@FT$TT#%Y$#$#$@%#@$#RR@GFTG$W@TGTGWFWFRW",
       "domain": "localhost",
-      "port": 80
+      "port": 7060
     },
 
     permLevels: [
