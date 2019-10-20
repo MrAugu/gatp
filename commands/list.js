@@ -28,7 +28,7 @@ class List extends Command {
     if (reports.length < 1) return reply(`No reports found on the specified list.`);
 
     reports = reports.slice(reports.length - 25, reports.length);
-    reports = reports.map(r => `${r.id} - [${r.url}](${r.url})`)
+    reports = reports.map(r => `ID: **${r.id}** - [${r.url}](${r.url})`)
     const embed = new Discord.MessageEmbed()
       .setAuthor(message.author.tag, message.author.displayAvatarURL())
       .setTitle(`Search Results for List ${list}`)
