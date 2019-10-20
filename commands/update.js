@@ -32,7 +32,7 @@ class Update extends Command {
       const embed = new Discord.MessageEmbed()
         .setAuthor("GAPT", this.client.user.displayAvatarURL())
         .setTitle("Website Taken Down")
-        .setDescription(`Website: ${dbReport.url}\nHosted On: ${dbReport.host}\nGame: ${dbReport.game}\nCase ID: ${dbReport.id}`)
+        .setDescription(`**Website:** ${dbReport.url}\n**Hosted On:** ${dbReport.host}\n**Game:** ${dbReport.game}\n**Case ID:** ${dbReport.id}`)
         .setColor("RED")
         .setTimestamp();
       this.client.channels.get("535458392852922368").send(embed);
