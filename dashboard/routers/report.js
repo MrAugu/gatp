@@ -6,17 +6,18 @@ const games = {
   "1": "Growtopia"
 };
 const Websites = require("../../models/websites.js");
+const Discord = require("discord.js");
 
 Router.get("/", (req, res) => {
   renderTemplate(res, req, "report.ejs", { alertRed: null, alertGreen: null });
 });
 
 Router.post("/", async (req, res) => {
-  if (!isUrl(req.body.url)) renderTemplate(res, req, "report.ejs", { alertRed: "Invalid link specified.", alertGreen: null });
+  if (!isUrl(req.body.url)) return renderTemplate(res, req, "report.ejs", { alertRed: "Invalid link specified.", alertGreen: null });
   const count = await Websites.countDocuments();
   if (!req.body.url.startsWith("http")) req.body.url = `http://${req.body.url}`;
   const isReported = await Websites.findOne({ url: req.body.url });
-  if (isReported) renderTemplate(res, req, "report.ejs", { alertRed: "The link has been already repored by someone else. :]", alertGreen: null });
+  if (isReported) return renderTemplate(res, req, "report.ejs", { alertRed: "The link has been already repored by someone else. :]", alertGreen: null });
 
   await (new Websites({
     id: count + 1,
@@ -25,6 +26,15 @@ Router.post("/", async (req, res) => {
     game: games[req.body.game],
     timestamp: Date.now()
   }).save()).catch(e => console.error(e));
+
+  const embed = new Discord.MessageEmbed()
+    .setAuthor("GAPT", client.user.displayAvatarURL())
+    .setTitle("New Report")
+    .setDescription(`Website: ${req.body.url}\nHosted On: ${(req.body.host.length < 3 ? null : req.body.host) === null ? "Not Specified" : (req.body.host.length < 3 ? null : req.body.host)}\nGame: ${games[req.body.game]}`)
+    .setColor("RED")
+    .setTimestamp()
+    .setFooter(`ID - ${count + 1}`);
+  client.channels.get("536531331903913985").send(embed);
 
   renderTemplate(res, req, "report.ejs", { alertRed: null, alertGreen: "Reported!<br>Report ID: <strong>" + (count + 1) + "</strong> (You can use it to track your report.)" });
 });

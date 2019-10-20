@@ -2,8 +2,9 @@ const config = {
     "token":  "NjM0MTAxMDk0OTA1MDIwNDM2.XahySQ.4Z2HJ1fvXtSMsvg9pExkEuTBJiQ",
     "prefix": "=",
     "owner": "",
-    "admins": [],
+    "admins": ["367302593753645057"],
     "operators": [],
+    "staff": [],
     "dbUrl": "mongodb+srv://bot:bot--1@bot-wlsbg.mongodb.net/gtpp?retryWrites=true&w=majority",
 
     "emojis": {
@@ -67,8 +68,8 @@ const config = {
       },
 
       { level: 5,
-        name: "Support Operator",
-        check: (message) => config.operators.includes(message.author.id)
+        name: "Staff",
+        check: (message) => config.staff.includes(message.author.id)
       },
 
       { level: 9,
