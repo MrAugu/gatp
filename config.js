@@ -2,10 +2,10 @@ const config = {
     "token":  "NjM0MTAxMDk0OTA1MDIwNDM2.XahySQ.4Z2HJ1fvXtSMsvg9pExkEuTBJiQ",
     "prefix": "=",
     "owner": "",
-    "admins": ["367302593753645057"],
+    "admins": ["367302593753645057", "329655289966231552"],
     "operators": [],
-    "staff": [],
-    "dbUrl": "mongodb+srv://bot:bot--1@bot-wlsbg.mongodb.net/gtpp?retryWrites=true&w=majority",
+    "staff": ["355121277046095872", "525055862570745866", "434358259927875585", "445200846913929226", "235660286718246912", "329655289966231552", "423807997869817858"],
+    "dbUrl": "mongodb+srv://bot:bot--1@bot-wlsbg.mongodb.net/gapt?retryWrites=true&w=majority",
 
     "emojis": {
       "redTick": ":x:",
