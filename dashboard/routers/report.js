@@ -17,7 +17,7 @@ Router.post("/", async (req, res) => {
   const count = await Websites.countDocuments();
   if (!req.body.url.startsWith("http")) req.body.url = `http://${req.body.url}`;
   const isReported = await Websites.findOne({ url: req.body.url });
-  if (isReported) return renderTemplate(res, req, "report.ejs", { alertRed: "The link has been already repored by someone else. :]", alertGreen: null });
+  if (isReported) return renderTemplate(res, req, "report.ejs", { alertRed: "The link has been already reported by someone else. :]", alertGreen: null });
 
   await (new Websites({
     id: count + 1,
