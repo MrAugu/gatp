@@ -7,15 +7,6 @@ module.exports = class {
   }
 
   async run () {
-    this.client.on("guildMemberAdd", member => {
-      if (member.guild.id !== "535103517485170719") return;
-      this.client.channels.get("535106767386968064").send(`Welcome ${member.user}!`);
-    });
-
-    this.client.on("guildMemberRemove", member => {
-      if (member.guild.id !== "535103517485170719") return;
-      this.client.channels.get("535106767386968064").send(`${member.user.tag} has left! Good Bye!`);
-    });
 
     this.client.appInfo = await this.client.fetchApplication();
     setInterval( async () => {
@@ -23,7 +14,7 @@ module.exports = class {
     }, 60000);
 
     await this.client.user.setStatus("dnd");
-    await this.client.user.setActivity(`${this.client.guilds.size} Servers | help`)
+    await this.client.user.setActivity(`${this.client.guilds.size} Servers | =help`)
     this.client.logger.log(`Logged in as ${this.client.user.tag}! Serving ${this.client.guilds.size} Servers and ${this.client.users.size} Users.`, "ready");
 
     const dash = new Dashboard(this.client);

@@ -5,7 +5,8 @@ const lists = {
   0: "Received Reports",
   1: "Reported Websites",
   2: "Taken Down Websites",
-  3: "Discarded Reports"
+  3: "Discarded Reports",
+  4: "Has a Domain"
 };
 
 class List extends Command {
@@ -13,11 +14,11 @@ class List extends Command {
     super(client, {
       name: "list",
       description: "Shows list of websites.",
-      category: "Staff",
+      category: "User",
       usage: "<list number>",
       enabled: true,
       aliases: [],
-      permLevel: "Staff",
+      permLevel: "User",
       cooldown: 0,
       args: true
     });
@@ -25,8 +26,8 @@ class List extends Command {
 
   async run (message, args, level, reply) { // eslint-disable-line no-unused-vars
     var list = parseInt(args[0]);
-    if (isNaN(list)) return reply(`Invalid list. The list convention is the following:\n0 - Received Reports (Neither reported or discared.)\n1 - Reported Websites (Host of the website's been contacted.)\n2 - Taken Down Websites (Websites suspended by the host.)\n3 - Dismissed Reports (Troll reports that are 'deleted'.)`);
-    if (list < 0 || list > 3) return reply(`Invalid list. The list convention is the following:\n0 - Received Reports (Neither reported or discared.)\n1 - Reported Websites (Host of the website's been contacted.)\n2 - Taken Down Websites (Websites suspended by the host.)\n3 - Dismissed Reports (Troll reports that are 'deleted'.)`);
+    if (isNaN(list)) return reply(`Invalid list. The list convention is the following:\n0 - Received Reports (Neither reported or discared.)\n1 - Reported Websites (Host of the website's been contacted.)\n2 - Taken Down Websites (Websites suspended by the host.)\n3 - Dismissed Reports (Troll reports that are 'deleted'.)\n4 - Has a Domain(Framed websites)`);
+    if (list < 0 || list > 4) return reply(`Invalid list. The list convention is the following:\n0 - Received Reports (Neither reported or discared.)\n1 - Reported Websites (Host of the website's been contacted.)\n2 - Taken Down Websites (Websites suspended by the host.)\n3 - Dismissed Reports (Troll reports that are 'deleted'.)\n4 - Has a Domain(Framed websites)`);
 
     const hostRegex = new RegExp(args.slice(1).join(" "), "i");
 
@@ -43,7 +44,7 @@ class List extends Command {
     if (reports.length > 10) {
       while (reportsLeft > 10 && page < 5) {
         var rprts = paginate(reports, 10, page);
-        rprts = rprts.map(r => `**${r.id}** - [${r.url}](${r.url})`);
+        rprts = rprts.map(r => `(${r.id}) [${r.url}](${r.url})`);
         const embed = new Discord.MessageEmbed()
           .setTitle(`Viewing List Of ${lists[list]} ${args[1] ? "Hosted By " + args.slice(1).join(" ").toProperCase() : ""}`)
           .setDescription(`${rprts.join("\n")}\n\nShowing page **${page}** of **${Math.floor(reports.length / 10)}**.`)
@@ -55,7 +56,7 @@ class List extends Command {
       }
     } else {
       reports = reports.slice(reports.length - 10, reports.length);
-      reports = reports.map(r => `**${r.id}** - [${r.url}](${r.url})`)
+      reports = reports.map(r => `(${r.id}) [${r.url}](${r.url})`)
       const embed = new Discord.MessageEmbed()
         .setTitle(`Viewing List Of ${lists[list]} ${args[1] ? "Hosted By " + args[1].toProperCase() : ""}`)
         .setDescription(`${reports.join("\n")}\n\nShowing last **${reports.length}** results from a total of **${totalNr.toLocaleString()}** results.`)
