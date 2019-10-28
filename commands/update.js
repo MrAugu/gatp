@@ -37,8 +37,8 @@ class Update extends Command {
 
     if (list === 2) {
       const embed = new Discord.MessageEmbed()
-        .setTitle("Website Taken Down")
-        .setDescription(`**Website:** ${dbReport.url}\n**Hosted On:** ${dbReport.host}\n**Game:** ${dbReport.game}\n**Case ID:** ${dbReport.id}`)
+        .setTitle("Ding Dong! Hackers are crying! Ding Ding Ding!\nWebsite Taken Down!")
+        .setDescription(`**Website:** ${dbReport.url}\n**Hosted On:** ${dbReport.host}\n**Game:** ${dbReport.game}\n**Case ID:** ${dbReport.id}\nHooray!`)
         .setColor("RED")
         .setTimestamp();
       this.client.channels.get("535458392852922368").send(embed);
