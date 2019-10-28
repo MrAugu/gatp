@@ -42,7 +42,7 @@ class List extends Command {
     var page = 1;
     var reportsLeft = reports.length;
     // if (reports.length > 10) {
-      while (reportsLeft > 10 && page < 5) {
+      while (reportsLeft > 0 && page < 5) {
         var rprts = paginate(reports, 10, page);
         rprts = rprts.map(r => `(${r.id}) [${r.url}](${r.url})`);
         const embed = new Discord.MessageEmbed()
