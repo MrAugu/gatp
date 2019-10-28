@@ -18,7 +18,6 @@ class Suggest extends Command {
 
 
   async run (message, args, level, reply) { // eslint-disable-line no-unused-vars
-    var idea = args.join(" ");
     const filter = response => {
       return response.author.id === message.author.id;
     }

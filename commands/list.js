@@ -47,7 +47,7 @@ class List extends Command {
         rprts = rprts.map(r => `(${r.id}) [${r.url}](${r.url})`);
         const embed = new Discord.MessageEmbed()
           .setTitle(`Viewing List Of ${lists[list]} ${args[1] ? "Hosted By " + args.slice(1).join(" ").toProperCase() : ""}`)
-          .setDescription(`${rprts.join("\n")}\n\nShowing page **${page}** of **${Math.floor(reports.length / 10) || 1}** (**${reports.length}** total results).`)
+          .setDescription(`${rprts.join("\n")}\n\nShowing page **${page}** of **${Math.ceil(reports.length / 10) || 1}** (**${reports.length}** total results).`)
           .setColor("RED")
           .setTimestamp();
         reply(embed);
