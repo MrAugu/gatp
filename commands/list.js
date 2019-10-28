@@ -41,7 +41,7 @@ class List extends Command {
     if (reports.length < 1) return reply(`No reports found on the specified list.`);
     var page = 1;
     var reportsLeft = reports.length;
-    if (reports.length > 10) {
+    // if (reports.length > 10) {
       while (reportsLeft > 10 && page < 5) {
         var rprts = paginate(reports, 10, page);
         rprts = rprts.map(r => `(${r.id}) [${r.url}](${r.url})`);
@@ -54,16 +54,16 @@ class List extends Command {
         reportsLeft -= 10;
         page++;
       }
-    } else {
-      reports = reports.slice(reports.length - 10, reports.length);
-      reports = reports.map(r => `(${r.id}) [${r.url}](${r.url})`)
-      const embed = new Discord.MessageEmbed()
-        .setTitle(`Viewing List Of ${lists[list]} ${args[1] ? "Hosted By " + args[1].toProperCase() : ""}`)
-        .setDescription(`${reports.join("\n")}\n\nShowing last **${reports.length}** results from a total of **${totalNr.toLocaleString()}** results.`)
-        .setColor("RED")
-        .setTimestamp();
-      reply(embed);
-    }
+    //} else {
+      //reports = reports.slice(reports.length - 10, reports.length);
+     // reports = reports.map(r => `(${r.id}) [${r.url}](${r.url})`)
+     // const embed = new Discord.MessageEmbed()
+       // .setTitle(`Viewing List Of ${lists[list]} ${args[1] ? "Hosted By " + args[1].toProperCase() : ""}`)
+      //  .setDescription(`${reports.join("\n")}\n\nShowing last **${reports.length}** results from a total of **${totalNr.toLocaleString()}** results.`)
+      //  .setColor("RED")
+      //  .setTimestamp();
+     // reply(embed);
+  //  }
   }
 }
 
