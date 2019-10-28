@@ -23,7 +23,7 @@ class Help extends Command {
       .setTimestamp()
       .setFooter(`Bot & Website created and maintained by MrAugu.`);
 
-    this.client.commands.map(c => embed.addField(`${c.help.name.toProperCase()} | \`=${c.help.name}\``, `Description: ${c.help.description}\nSyntax: \`=${c.help.name} ${c.help.usage}\`\nPermission: \`${c.conf.permLevel}\``));
+    this.client.commands.filter(h => !["eval"].includes(h.help.name)).map(c => embed.addField(`${c.help.name.toProperCase()} | \`=${c.help.name}\``, `Description: ${c.help.description}\nSyntax: \`=${c.help.name} ${c.help.usage}\`\nPermission: \`${c.conf.permLevel}\``));
     reply(embed);
   }
 }
