@@ -37,7 +37,7 @@ class Update extends Command {
 
     if (list === 2) {
       const embed = new Discord.MessageEmbed()
-        .setTitle("Ding Dong! Hackers are crying! Ding Ding Ding!\nWebsite Taken Down!")
+        .setTitle("[Ding Dong! Hackers are crying! Ding Ding Ding!](https://gapt.xyz)\nWebsite Taken Down!")
         .setDescription(`**Website:** ${dbReport.url}\n**Hosted On:** ${dbReport.host}\n**Game:** ${dbReport.game}\n**Case ID:** ${dbReport.id}\nHooray!`)
         .setColor("RED")
         .setTimestamp();
