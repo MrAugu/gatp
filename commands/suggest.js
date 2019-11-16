@@ -21,14 +21,16 @@ class Suggest extends Command {
     const filter = response => {
       return response.author.id === message.author.id;
     }
-    reply("What is the title?")
+    reply("What is the title? Type `cancel` to stop.")
     await message.channel.awaitMessages(filter, { max: 1 })
     .then(collected => {
       const title = collected.first();
-      reply('What is the description?')
+      if (title.toLowerCase() == "cancel") return reply("Cancelled!");
+      reply('What is the description? Type `cancel` to stop.')
       message.channel.awaitMessages(filter, { max: 1 })
       .then(collected => {
         const desc = collected.first()
+        if (desc.toLowerCase() == "cancel") return reply("Cancelled!");
         const embed = new Discord.MessageEmbed()
           .setAuthor(message.author.tag, message.author.displayAvatarURL())
           .setTitle("New Suggestion!")
