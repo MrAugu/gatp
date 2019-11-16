@@ -43,7 +43,7 @@ class List extends Command {
     var reportsLeft = reports.length;
     // if (reports.length > 10) {
       while (reportsLeft > 0 && page < 5) {
-        var rprts = paginate(reports, 10, page);
+        var rprts = paginate(reports, 30, page);
         rprts = rprts.map(r => `(${r.id}) [${r.url}](${r.url})`);
         const embed = new Discord.MessageEmbed()
           .setTitle(`Viewing List Of ${lists[list]} ${args[1] ? "Hosted By " + args.slice(1).join(" ").toProperCase() : ""}`)

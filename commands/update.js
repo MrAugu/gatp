@@ -45,7 +45,7 @@ class Update extends Command {
       this.client.channels.get("535458392852922368").send(embed);
     }
 
-    return reply(`Updated \`${dbReport.url}\` to \`${lists[list]}\`.`);
+    return reply(`Updated ${dbReport.url} to ${lists[list]}.`);
   }
 }
 
