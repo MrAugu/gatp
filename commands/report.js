@@ -24,19 +24,22 @@ class Report extends Command {
     const filter = response => {
       return response.author.id === message.author.id;
     }
-    reply("What's the website you want to report?")
+    reply("What's the website you want to report? Type `cancel` to stop.")
     await message.channel.awaitMessages(filter, { max: 1 })
     .then(collected => {
       const website = collected.first().content;
+      if (website.toLowerCase() == "cancel") return reply("Cancelled!");
       reply('What game is this website for?')
       message.channel.awaitMessages(filter, { max: 1 })
       .then(collected => {
         var game = collected.first().content;
+        if (game.toLowerCase() == "cancel") return reply("Cancelled!");
         game = (!(["Growtopia"]).includes(game.toProperCase())) ? "Other" : game.toProperCase();
         reply("Where is it hosted? Type `.` if you don't know.")
         message.channel.awaitMessages(filter, { max: 1 })
         .then(collected => {
           const host = collected.first().content;
+          if (host.toLowerCase() == "cancel") return reply("Cancelled!");
           new Websites({
             id: count + 1,
             url: `http://${website}`,
