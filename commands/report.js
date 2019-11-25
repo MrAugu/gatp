@@ -28,14 +28,15 @@ class Report extends Command {
     await message.channel.awaitMessages(filter, { max: 1 })
     .then(collected => {
       var website = collected.first().content;
-      if (!website.startsWith("http")) website = `http://${website}`
+      if (!website.startsWith("http")) website = `http://${website}`;
       if (website.toLowerCase() == "cancel") return reply("Cancelled!");
       reply('What game is this website for?')
       message.channel.awaitMessages(filter, { max: 1 })
       .then(collected => {
         var game = collected.first().content;
         if (game.toLowerCase() == "cancel") return reply("Cancelled!");
-        game = (!(["Growtopia"]).includes(game.toProperCase())) ? "Other" : game.toProperCase();
+        game = (!(["Growtopia", "Gt"]).includes(game.toProperCase())) ? "Other" : game.toProperCase();
+        if (game == "Gt") game = "Growtopia";
         reply("Where is it hosted? Type `.` if you don't know.")
         message.channel.awaitMessages(filter, { max: 1 })
         .then(collected => {
