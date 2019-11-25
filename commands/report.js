@@ -27,7 +27,8 @@ class Report extends Command {
     reply("What's the website you want to report? Type `cancel` to stop.")
     await message.channel.awaitMessages(filter, { max: 1 })
     .then(collected => {
-      const website = collected.first().content;
+      var website = collected.first().content;
+      if (!website.startsWith("http")) website = `http://${website}`
       if (website.toLowerCase() == "cancel") return reply("Cancelled!");
       reply('What game is this website for?')
       message.channel.awaitMessages(filter, { max: 1 })
@@ -42,7 +43,7 @@ class Report extends Command {
           if (host.toLowerCase() == "cancel") return reply("Cancelled!");
           new Websites({
             id: count + 1,
-            url: `http://${website}`,
+            url: `${website}`,
             host: host.length < 3 ? "Not Specified" : host,
             game: `${game}`,
             timestamp: Date.now()
@@ -50,7 +51,7 @@ class Report extends Command {
           const embed = new Discord.MessageEmbed()
             .setAuthor("GAPT", client.user.displayAvatarURL())
             .setTitle("New Report")
-            .setDescription(`Website: http://${website}\nHosted On: ${host.length < 3 ? "Not Specified" : host}\nGame: ${game}\nCase ID: ${count + 1}`)
+            .setDescription(`Website: ${website}\nHosted On: ${host.length < 3 ? "Not Specified" : host}\nGame: ${game}\nCase ID: ${count + 1}`)
             .setColor("RED")
             .setTimestamp();
           client.channels.get("536531331903913985").send(embed);
