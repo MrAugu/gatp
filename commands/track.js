@@ -28,7 +28,7 @@ class Track extends Command {
     var id = parseInt(args[0])
     const report = await Websites.findOne({ id: id });
     if (!report) return reply("Report could not be found!")
-    reply("Website Url: ${report.url}\nReport Status: ${status[report.status]}")
+    reply(`Website Url: ${report.url}\nReport Status: ${status[report.status]}`)
   }
 }
 
