@@ -8,8 +8,10 @@ const games = {
 const Websites = require("../../models/websites.js");
 const Discord = require("discord.js");
 
-Router.get("/", (req, res) => {
-  renderTemplate(res, req, "report.ejs", { alertRed: null, alertGreen: null });
+Router.get("/", async (req, res) => {
+  const count = await Websites.countDocuments({ status: 2 });
+
+  renderTemplate(res, req, "report.ejs", { alertRed: null, alertGreen: null, amount: count });
 });
 
 Router.post("/", async (req, res) => {
