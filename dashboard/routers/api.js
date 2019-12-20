@@ -17,7 +17,7 @@ Router.post("/report/growcord", async (req, res) => {
   var isReported = await Websites.findOne({ url: req.body.url });
   if (isReported && isReported.status === 2) isReported = false;
 
-  if (isReported) res.status(501).send(JSON.stringify({ "msg": "Already reported.", "code": 501, "error": "The url in the body was already reported by someone else.", "errorCode": "ALREADY_REPORTED" }, null, 4));
+  if (isReported) return res.status(501).send(JSON.stringify({ "msg": "Already reported.", "code": 501, "error": "The url in the body was already reported by someone else.", "errorCode": "ALREADY_REPORTED" }, null, 4));
 
   await (new Websites({
     id: count + 1,
@@ -28,8 +28,8 @@ Router.post("/report/growcord", async (req, res) => {
   }).save()).catch(e => console.error(e));
 
   const embed = new Discord.MessageEmbed()
-    .setAuthor("GAPT <:partner:657649043689832458> GrowCord", client.user.displayAvatarURL())
-    .setTitle("New Report By GrowCord")
+    .setAuthor("New Report By GrowCord", client.user.displayAvatarURL())
+    .setTitle("GAPT <:partner:657649043689832458> GrowCord")
     .setDescription(`Website: ${req.body.url}\nHosted On: ${(req.body.host.length < 3 ? null : req.body.host) === null ? "Not Specified" : (req.body.host.length < 3 ? null : req.body.host)}\nGame: ${games[req.body.game]}\nCase ID: ${count + 1}`)
     .setColor("RED")
     .setTimestamp();
