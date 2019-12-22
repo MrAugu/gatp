@@ -6,7 +6,7 @@ class Suggest extends Command {
     super(client, {
       name: "suggest",
       description: "Sends a suggestion.",
-      category: "User",
+      category: "General",
       usage: "",
       enabled: true,
       aliases: [],

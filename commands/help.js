@@ -19,11 +19,12 @@ class Help extends Command {
   async run (message, args, level, reply) { // eslint-disable-line no-unused-vars
     var embed = new Discord.MessageEmbed()
       .setAuthor(message.author.tag, message.author.displayAvatarURL())
-      .setColor("RED")
-      .setTimestamp()
-      .setFooter(`Bot & Website created and maintained by MrAugu.`);
+      .setColor("AQUA")
+      .setTimestamp();
 
-    this.client.commands.filter(h => !["eval"].includes(h.help.name)).map(c => embed.addField(`${c.help.name.toProperCase()} | \`=${c.help.name}\``, `Description: ${c.help.description}\nSyntax: \`=${c.help.name} ${c.help.usage}\`\nPermission: \`${c.conf.permLevel}\``));
+    embed.addField("General Commands:", `\`${this.client.commands.filter(c => c.help.category === "General").map(c => `=${c.help.name}`).join("\`, \`")}\``);
+    embed.addField("Staff:", `\`${this.client.commands.filter(c => c.help.category === "Staff").map(c => `=${c.help.name}`).join("\`, \`")}\``);
+
     reply(embed);
   }
 }

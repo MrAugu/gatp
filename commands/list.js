@@ -14,7 +14,7 @@ class List extends Command {
     super(client, {
       name: "list",
       description: "Shows list of websites.",
-      category: "User",
+      category: "Staff",
       usage: "<list number>",
       enabled: true,
       aliases: [],
@@ -30,6 +30,19 @@ class List extends Command {
     if (list < 0 || list > 4) return reply(`Invalid list. The list convention is the following:\n0 - Received Reports (Neither reported or discared.)\n1 - Reported Websites (Host of the website's been contacted.)\n2 - Taken Down Websites (Websites suspended by the host.)\n3 - Dismissed Reports (Troll reports that are 'deleted'.)\n4 - Has a Domain(Framed websites)`);
 
     const hostRegex = new RegExp(args.slice(1).join(" "), "i");
+    var pg;
+
+    var indx = 0;
+
+    for (const arg of args) {
+      if (arg.toLowerCase().startsWith("p")) {
+        pg = parseInt(arg.replace("p", ""));
+        args = args.splice(indx, 1);
+      }
+      indx++;
+    }
+
+    if (isNaN(pg)) pg = null;
 
     var reports;
     if (args[1]) reports = await Reports.find({ status: list, host: hostRegex });
@@ -41,29 +54,29 @@ class List extends Command {
     if (reports.length < 1) return reply(`No reports found on the specified list.`);
     var page = 1;
     var reportsLeft = reports.length;
-    // if (reports.length > 10) {
+    if (!pg) {
       while (reportsLeft > 0 && page < 5) {
         var rprts = paginate(reports, 10, page);
-        rprts = rprts.map(r => `(${r.id}) [${r.url}](${r.url})`);
+        rprts = rprts.map(r => `${r.id} • [${r.url}](${r.url})`);
         const embed = new Discord.MessageEmbed()
-          .setTitle(`Viewing List Of ${lists[list]} ${args[1] ? "Hosted By " + args.slice(1).join(" ").toProperCase() : ""}`)
-          .setDescription(`${rprts.join("\n")}\n\nShowing page **${page}** of **${Math.ceil(reports.length / 10) || 1}** (**${reports.length}** total results).`)
-          .setColor("RED")
+          .setTitle(`${lists[list]} ${args[1] ? "- Hosted By " + args.slice(1).join(" ").toProperCase() : ""}`)
+          .setDescription(`${rprts.join("\n")}\n\n- Page **${page}**/**${Math.ceil(reports.length / 10) || 1}**\n- **${reports.length.toLocaleString()}** Total Results`)
+          .setColor("AQUA")
           .setTimestamp();
         reply(embed);
         reportsLeft -= 10;
         page++;
       }
-    //} else {
-      //reports = reports.slice(reports.length - 10, reports.length);
-     // reports = reports.map(r => `(${r.id}) [${r.url}](${r.url})`)
-     // const embed = new Discord.MessageEmbed()
-       // .setTitle(`Viewing List Of ${lists[list]} ${args[1] ? "Hosted By " + args[1].toProperCase() : ""}`)
-      //  .setDescription(`${reports.join("\n")}\n\nShowing last **${reports.length}** results from a total of **${totalNr.toLocaleString()}** results.`)
-      //  .setColor("RED")
-      //  .setTimestamp();
-     // reply(embed);
-  //  }
+    } else {
+      var rprts = paginate(reports, 10, pg);
+        rprts = rprts.map(r => `${r.id} • [${r.url}](${r.url})`);
+        const embed = new Discord.MessageEmbed()
+          .setTitle(`${lists[list]} ${args[1] ? "- Hosted By " + args.slice(1).join(" ").toProperCase() : ""}`)
+          .setDescription(`${rprts.join("\n")}\n\n- Page **${pg}**/**${Math.ceil(reports.length / 10) || 1}**\n- **${reports.length.toLocaleString()}** Total Results`)
+          .setColor("AQUA")
+          .setTimestamp();
+        reply(embed);
+    }
   }
 }
 

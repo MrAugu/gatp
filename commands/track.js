@@ -13,7 +13,7 @@ class Track extends Command {
     super(client, {
       name: "track",
       description: "Tracks a reported website by ID.",
-      category: "User",
+      category: "General",
       usage: "",
       enabled: true,
       aliases: [],

@@ -8,7 +8,7 @@ class Report extends Command {
     super(client, {
       name: "report",
       description: "Reports a website.",
-      category: "User",
+      category: "General",
       usage: "",
       enabled: true,
       aliases: [],
