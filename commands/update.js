@@ -37,10 +37,10 @@ class Update extends Command {
 
     if (list === 2) {
       const embed = new Discord.MessageEmbed()
-        .setTitle("Ding Dong! Phishers are crying! Ding Ding Ding!\nWebsite Taken Down!")
-        .setURL('https://gapt.xyz')
-        .setDescription(`**Website:** ${dbReport.url}\n**Hosted On:** ${dbReport.host}\n**Game:** ${dbReport.game}\n**Case ID:** ${dbReport.id}\nHooray!`)
-        .setColor("RED")
+        .setTitle("Website Taken Down!")
+        .setURL("https://gapt.xyz")
+        .setDescription(`**Website:** ${dbReport.url}\n**Hosted On:** ${dbReport.host}\n**Case ID:** ${dbReport.id}\nHooray!`)
+        .setColor("AQUA")
         .setTimestamp();
       this.client.channels.get("535458392852922368").send(embed);
     }

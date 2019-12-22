@@ -27,8 +27,16 @@ class Track extends Command {
   async run (message, args, level, reply) { // eslint-disable-line no-unused-vars
     var id = parseInt(args[0])
     const report = await Websites.findOne({ id: id });
-    if (!report) return reply("Report could not be found!")
-    reply(`Website Url: ${report.url}\nReport Status: ${status[report.status]}`)
+    if (!report) return reply("Report could not be found in our database.");
+
+    const embed = new Discord.MessageEmbed()
+      .setAuthor(message.author.tag, message.author.displayAvatarURL())
+      .setTitle(`Report Tracker`)
+      .setDescription(`**Website**: ${report.url}\n**Report Status**: ${status[report.status]}`)
+      .setColor("AQUA")
+      .setTimestamp();
+
+    reply(embed);
   }
 }
 

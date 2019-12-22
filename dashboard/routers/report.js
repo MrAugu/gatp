@@ -33,10 +33,10 @@ Router.post("/", async (req, res) => {
   }).save()).catch(e => console.error(e));
 
   const embed = new Discord.MessageEmbed()
-    .setAuthor("GAPT", client.user.displayAvatarURL())
+    .setAuthor("GTAPT", client.user.displayAvatarURL())
     .setTitle("New Report")
-    .setDescription(`Website: ${req.body.url}\nHosted On: ${(req.body.host.length < 3 ? null : req.body.host) === null ? "Not Specified" : (req.body.host.length < 3 ? null : req.body.host)}\nGame: ${games[req.body.game]}\nCase ID: ${count + 1}`)
-    .setColor("RED")
+    .setDescription(`**Website:** ${req.body.url}\n**Hosted On:** ${(req.body.host.length < 3 ? null : req.body.host) === null ? "Not Specified" : (req.body.host.length < 3 ? null : req.body.host)}\n**Case ID:** ${count + 1}`)
+    .setColor("AQUA")
     .setTimestamp();
   client.channels.get("536531331903913985").send(embed);
 

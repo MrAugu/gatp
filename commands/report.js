@@ -50,10 +50,10 @@ class Report extends Command {
             timestamp: Date.now()
           }).save().catch(e => console.error(e));
           const embed = new Discord.MessageEmbed()
-            .setAuthor("GAPT", client.user.displayAvatarURL())
-            .setTitle("New Report")
-            .setDescription(`Website: ${website}\nHosted On: ${host.length < 3 ? "Not Specified" : host}\nGame: ${game}\nCase ID: ${count + 1}`)
-            .setColor("RED")
+            .setAuthor("GTAPT", client.user.displayAvatarURL())
+            .setTitle("New Report!")
+            .setDescription(`**Website:** ${website}\n**Hosted On:** ${host.length < 3 ? "Not Specified" : host}\nCase ID: ${count + 1}`)
+            .setColor("AQUA")
             .setTimestamp();
           client.channels.get("536531331903913985").send(embed);
           reply("Reported! Report ID: " + (count + 1) + "\n(You can use it to track your report)")

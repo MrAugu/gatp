@@ -19,11 +19,10 @@ class Invite extends Command {
   async run (message, args, level, reply) { // eslint-disable-line no-unused-vars
     var embed = new Discord.MessageEmbed()
       .setAuthor(message.author.tag, message.author.displayAvatarURL())
-      .setColor("RED")
-      .addField(`Join my Server`, `Join my server by [clicking here.](https://discord.gg/xaTp9ru)`)
-      .addField(`Have me Join your Server`, `I can join your server by having you [click here.](https://discordapp.com/oauth2/authorize?client_id=634101094905020436&permissions=8&scope=bot)`)
-      .setTimestamp()
-      .setFooter(`Bot & Website created and maintained by MrAugu.`);
+      .setColor("AQUA")
+      .addField("Support Server", `Join my server by [clicking here](https://discord.gg/xaTp9ru).`)
+      .addField(`Bot Invite`, `I can join your server by having you [click here](https://discordapp.com/oauth2/authorize?client_id=634101094905020436&permissions=8&scope=bot).`)
+      .setTimestamp();
     reply(embed);
   }
 }
