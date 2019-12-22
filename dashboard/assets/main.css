@@ -6,8 +6,8 @@
 
 body {
   font-family: "open sans", sans-serif, Helvetica;
-  background-color: #2C2F33;
-  color: #ffffff;
+  color: #000000;
+  background: url("https://www.growtopiagame.com/resources/assets/images/grow_header.jpg");
 }
 
 textarea:focus, input:focus{
@@ -26,8 +26,7 @@ ul {
 }
 
 .header-container {
-    color: #ffffff;
-    background-color: #23272A;
+    color: #000000;
     text-align: center;
     padding: .8em 1.2em;
     height: 4.5em;
@@ -38,11 +37,10 @@ ul {
     margin: 0;
     font-size: 20px;
     color: #FFFFFF;
-    height: 42px;
-    width: 42px;
-    border-radius: 50%;
+    height: 90px;
+    width: 200px;
     position: relative;
-    top: 0.7em;
+    top: 0.5em;
 }
 
 .header-img {
@@ -96,16 +94,15 @@ nav ul {
 }
 
 nav ul li a {
-    color: #FFFFFF;
+    color: #000000;
     text-decoration: none;
     display: inline;
     position: relative;
     top: 0.25em;
-    width: 50%;
 }
 
 nav ul li a:hover {
-  color: #cccccc;
+  color: gray;
 }
 
 .exit-btn {
@@ -413,9 +410,9 @@ footer {
 .basic-input {
   height: 40px;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  color: #fff;
-  border: 1px solid #242424;
+  background: rgba(255,255,255,0.6);
+  color: #000000;
+  border: 1px solid #ffffff;
   border-radius: 3px;
   width: 100%;
 }
@@ -427,7 +424,7 @@ footer {
 }
 
 .basic-input:hover {
-  border: 1px solid #181a1c;
+  border: 1px solid #17599b;
 }
 
 .basic-input:focus {
@@ -504,140 +501,19 @@ footer {
 
 .basic-btn {
   text-decoration: none;
-  color: #7289DA;
+  color: #000;
   padding: 4px 8px;
   border-radius: 2px;
   width: 100%;
   background-color: inherit;
   height: 40px;
   text-align: center;
-  border: 1px solid #7289DA;
+  border: 1px solid #ffffff;
 }
 
 .basic-btn:hover {
-  color: #2C2F33;
-  background-color: #7289DA;
+  background-color: #ffffff;
 }
-
-.tip-yellow {
-  margin-left: 10%;
-  margin-right: 10%;
-  border-left: 4px solid #ffc107;
-  padding-left: 10px;
-  color: #ffc107;
-  margin-top: 20px;
-}
-
-textarea {
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  color: #fff;
-  border: 1px solid #242424;
-  border-radius: 3px;
-  width: 100%;
-  max-width: 100%;
-  height: 110px;
-  max-height: 110px;
-}
-
-textarea:hover {
-  border: 1px solid #181a1c;
-}
-
-textarea:focus {
-    border: 1px solid #7289DA;
-}
-
-textarea option {
-  background-color: #2C2F33;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.6);
-}
-
-.modal-content {
-  background-color: #2C2F33;
-  margin: 20% auto;
-  padding: 20px;
-  border-radius: 5px;
-  width: 80%;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.low-1 {
-  float: left;
-  width: 70%;
-  display: block;
-}
-
-.low-2 {
-  float: right;
-  width: 29%;
-  display: block;
-}
-
-.modal-input {
-  height: 37px;
-}
-
-.empty-message {
-  text-align: center;
-  position: relative;
-  top: 4em;
-}
-
-.btn-red {
-  color: #f04848;
-  border: 1px solid #f04848;
-}
-
-.btn-red:hover {
-  background-color: #f04848;
-  color: #2C2F33;
-}
-
-.option-list {
-  font-size: 14px;
-}
-
-.option-list-item {
-  height: auto;
-  width: auto;
-  background-color: #222222;
-  padding: 1em;
-}
-
-.description {
-  color: #696969;
-  font-size: 12px;
-  width: 100%;
-  height: auto;
-  word-break: break-word;
-}
-
 .url {
     color: #1C86EE;
     text-decoration: none;
@@ -693,7 +569,7 @@ textarea option {
     }
 
     nav ul li a {
-        color: #FFFFFF;
+        color: #000000;
         background-color: inherit;
         text-align: left;
         padding: 1em 2em;

@@ -1,7 +1,4 @@
 <%- include("blocks/header.ejs", { bot: bot, title: "Report Website" }) %>
-  <div class="header-extension">
-    <p class="header-extension-context">Report Website</p>
-  </div>
   <br>
   <h3 style="text-align: center;">We've taken down <span style="font-size: 30px; color: #ffc107;"><%= amount.toLocaleString() %></span> website until now!</h3>
   <br>
@@ -28,16 +25,8 @@
       <p class="settings-section-title">Where is hosted? (optional)</p>
       <input type="text" name="host" class="basic-input">
       <br><br>
-      <p class="settings-section-title">Game:</p>
-      <div class="basic-select">
-        <select name="game">
-          <option value="1">Growtopia</option>
-          <option value="1">Growtopia</option>
-        </select>
-      </div>
-      <br>
       <p>Track your report on <a href="/track" class="url">this page</a>.</p>
-      <button type="submit" class="basic-btn">Report</button>
+      <button type="submit" class="basic-btn">REPORT</button>
       <br><br>
     </section>
   </form>
