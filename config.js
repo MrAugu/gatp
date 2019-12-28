@@ -1,8 +1,8 @@
 const config = {
-    "token":  "NjM0MTAxMDk0OTA1MDIwNDM2.XahySQ.4Z2HJ1fvXtSMsvg9pExkEuTBJiQ",
+    "token":  "NjM5NDYxNjgxMDQ2NjE4MTQ0.XgZwNg.a7qRT3GoiGPRKmhjquU2wVIR-No",
     "prefix": "=",
     "owner": "",
-    "admins": ["367302593753645057", "329655289966231552"],
+    "admins": [],
     "operators": [],
     "staff": ["355121277046095872", "206744759258185729", "525055862570745866", "235660286718246912", "502109364950401025", "329655289966231552", "367302593753645057", "423807997869817858", "434358259927875585", "345457928972533773"],
     "dbUrl": "mongodb+srv://bot:bot--1@bot-wlsbg.mongodb.net/gapt?retryWrites=true&w=majority",
@@ -79,7 +79,7 @@ const config = {
 
       { level: 10,
         name: "Bot Owner",
-        check: (message) => "414764511489294347" === message.author.id
+        check: (message) => "355121277046095872" === message.author.id
       }
     ]
   };

@@ -21,7 +21,7 @@ class Invite extends Command {
       .setAuthor(message.author.tag, message.author.displayAvatarURL())
       .setColor("AQUA")
       .addField("Support Server", `Join my server by [clicking here](https://discord.gg/xaTp9ru).`)
-      .addField(`Bot Invite`, `I can join your server by having you [click here](https://discordapp.com/oauth2/authorize?client_id=634101094905020436&permissions=8&scope=bot).`)
+      .addField(`Bot Invite`, `I can join your server by having you [click here](https://discordapp.com/oauth2/authorize?client_id=639461681046618144&permissions=8&scope=bot).`)
       .setTimestamp();
     reply(embed);
   }
