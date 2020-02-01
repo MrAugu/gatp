@@ -1,5 +1,5 @@
 const config = {
-    "token":  "NjM5NDYxNjgxMDQ2NjE4MTQ0.XgZwNg.a7qRT3GoiGPRKmhjquU2wVIR-No",
+    "token":  "",
     "prefix": "=",
     "owner": "",
     "admins": [],
