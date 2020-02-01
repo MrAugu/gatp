@@ -41,3 +41,4 @@ class Track extends Command {
 }
 
 module.exports = Track;
+
