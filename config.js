@@ -4,8 +4,8 @@ const config = {
     "owner": "",
     "admins": [],
     "operators": [],
-    "staff": ["355121277046095872", "206744759258185729", "525055862570745866", "235660286718246912", "502109364950401025", "329655289966231552", "367302593753645057", "423807997869817858", "434358259927875585", "345457928972533773", "660869819528380417", "380275046561873930"],
-    "dbUrl": "mongodb+srv://bot:bot--1@bot-wlsbg.mongodb.net/gapt?retryWrites=true&w=majority",
+    "staff": [],
+    "dbUrl": "",
 
     "emojis": {
       "redTick": ":x:",
@@ -13,7 +13,7 @@ const config = {
     },
 
     "dashboard": {
-      "clientSecret": "RzIuoMNtwVLz2J2TZkvSZObFmRDC0dTG",
+      "clientSecret": "",
       "callbackURL": "http://localhost/callback",
       "sessionSecret": "EFRF@F@EE@FT$TT#%Y$#$#$@%#@$#RR@GFTG$W@TGTGWFWFRW",
       "domain": "localhost",
